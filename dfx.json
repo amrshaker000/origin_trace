@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "origin_trace_backend": {
+      "candid": "src/origin_trace_backend/origin_trace_backend.did",
+      "package": "origin_trace_backend",
+      "type": "rust"
+    },
+    "origin_trace_frontend": {
+      "dependencies": [
+        "origin_trace_backend"
+      ],
+      "source": [
+        "src/origin_trace_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "origin_trace_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
