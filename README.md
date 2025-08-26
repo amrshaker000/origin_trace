@@ -205,12 +205,6 @@ npm run preview
 
 This project is licensed under the MIT License.
 
-## 🆘 Support
-
-For support and questions:
-- Email: contact@origintrace.com
-- GitHub Issues: [Create an issue](https://github.com/your-repo/issues)
-
 ## 🔮 Future Roadmap
 
 - [ ] ICP Canister Development
