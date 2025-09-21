@@ -1,0 +1,422 @@
+{
+  "devices": [
+    {
+      "device_id": "LAP001",
+      "category": "Laptop",
+      "brand": "Dell",
+      "model": "XPS 13 9310",
+      "year": 2022,
+      "identity": {
+        "serial_number": "SN001XPS13",
+        "motherboard_id": "MB001XPS13",
+        "os_license": "Windows 11 Pro",
+        "bios_lock": false,
+        "tamper_flags": []
+      },
+      "cpu": {
+        "model": "Intel Core i7-1165G7",
+        "cores": 4,
+        "threads": 8,
+        "base_clock_ghz": 2.8,
+        "turbo_clock_ghz": 4.7,
+        "temperature_logs": [55, 62, 65, 63, 61],
+        "benchmark_score": 13500,
+        "error_logs": []
+      },
+      "gpu": {
+        "model": "Intel Iris Xe",
+        "vram": "Integrated",
+        "benchmark_fps_fhd": 120,
+        "stress_test_logs": [60, 62, 61, 59, 60],
+        "outputs_tested": ["HDMI", "USB-C DisplayPort"]
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "LPDDR4x",
+        "frequency_mhz": 4266,
+        "health_percent": 100
+      },
+      "storage": {
+        "type": "SSD",
+        "capacity_gb": 512,
+        "health_percent": 100,
+        "read_speed_mbps": 3200,
+        "write_speed_mbps": 2800,
+        "smart_logs": [
+          { "attribute": "Reallocated_Sector_Ct", "value": 0, "status": "OK" },
+          { "attribute": "Power_On_Hours", "value": 500, "status": "OK" }
+        ]
+      },
+      "battery": {
+        "design_capacity_mAh": 5200,
+        "current_capacity_mAh": 5100,
+        "health_percent": 98,
+        "cycle_count": 120,
+        "voltage": 11.4,
+        "status": "Good"
+      },
+      "screen": {
+        "size_inches": 13.4,
+        "resolution": "1920x1200",
+        "panel_type": "IPS",
+        "refresh_rate_hz": 60,
+        "status": "Excellent",
+        "dead_pixels": 0,
+        "touch_functional": true
+      },
+      "keyboard_trackpad": {
+        "keyboard_status": "Excellent",
+        "trackpad_status": "Excellent"
+      },
+      "ports_connectivity": {
+        "wifi_status": "Excellent",
+        "bluetooth_status": "Excellent",
+        "ports_tested": ["USB-C", "Thunderbolt 4", "Headphone Jack"]
+      },
+      "inspection_summary": {
+        "overall_score": 95,
+        "critical_issues": [],
+        "strengths": ["Excellent battery & screen", "Lightweight & portable"],
+        "weaknesses": [],
+        "best_use_cases": ["Graphic Design", "Office Work"],
+        "recommendation": "Perfect choice for professional use with no compromises."
+      },
+      "blockchain": {
+        "report_hash": "hash_lap001_abc123",
+        "timestamp": "2025-08-17T19:00:00Z"
+      }
+    },
+    {
+      "device_id": "LAP002",
+      "category": "Laptop",
+      "brand": "HP",
+      "model": "Spectre x360",
+      "year": 2021,
+      "identity": {
+        "serial_number": "HPX3602021SN002",
+        "motherboard_id": "MB002HPX360",
+        "os_license": "Windows 10 Pro",
+        "bios_lock": false,
+        "tamper_flags": []
+      },
+      "cpu": {
+        "model": "Intel i7-1165G7",
+        "cores": 4,
+        "threads": 8,
+        "base_clock_ghz": 2.8,
+        "turbo_clock_ghz": 4.7,
+        "temperature_logs": [55, 60, 62, 63],
+        "benchmark_score": 13500,
+        "error_logs": []
+      },
+      "gpu": {
+        "model": "Intel Iris Xe",
+        "vram": "Integrated",
+        "benchmark_fps_fhd": 60,
+        "stress_test_logs": [60, 61, 62],
+        "outputs_tested": ["HDMI", "USB-C DisplayPort"]
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "LPDDR4",
+        "frequency_mhz": 4266,
+        "health_percent": 95
+      },
+      "storage": {
+        "type": "SSD",
+        "capacity_gb": 512,
+        "health_percent": 90,
+        "read_speed_mbps": 3200,
+        "write_speed_mbps": 2800,
+        "smart_logs": []
+      },
+      "battery": {
+        "design_capacity_mAh": 6000,
+        "current_capacity_mAh": 5000,
+        "health_percent": 83,
+        "cycle_count": 250,
+        "voltage": 11.4,
+        "status": "Good"
+      },
+      "screen": {
+        "size_inches": 13.3,
+        "resolution": "1920x1080",
+        "panel_type": "IPS",
+        "refresh_rate_hz": 60,
+        "status": "Minor dead pixels",
+        "dead_pixels": 3,
+        "touch_functional": true
+      },
+      "keyboard_trackpad": {
+        "keyboard_status": "Good",
+        "trackpad_status": "Good"
+      },
+      "ports_connectivity": {
+        "wifi_status": "OK",
+        "bluetooth_status": "OK",
+        "ports_tested": ["USB-A", "USB-C", "Headphone Jack"]
+      },
+      "inspection_summary": {
+        "overall_score": 87,
+        "critical_issues": ["Battery degraded", "Minor dead pixels on screen"],
+        "strengths": ["Good CPU & GPU", "Portable design"],
+        "weaknesses": ["Battery life below original"],
+        "best_use_cases": ["Graphic Design", "Office work"],
+        "recommendation": "Suitable for most professional work; battery replacement recommended for heavy usage."
+      },
+      "blockchain": {
+        "report_hash": "TO_BE_GENERATED",
+        "timestamp": "2025-08-17T19:00:00Z"
+      }
+    },
+    {
+      "device_id": "LAP003",
+      "category": "Laptop",
+      "brand": "Lenovo",
+      "model": "ThinkPad X1 G9",
+      "year": 2022,
+      "identity": {
+        "serial_number": "LNX1G92022SN003",
+        "motherboard_id": "MB003LNX1",
+        "os_license": "Windows 11 Pro",
+        "bios_lock": false,
+        "tamper_flags": []
+      },
+      "cpu": {
+        "model": "Intel i7-1260P",
+        "cores": 12,
+        "threads": 16,
+        "base_clock_ghz": 2.1,
+        "turbo_clock_ghz": 4.7,
+        "temperature_logs": [52, 55, 58, 60],
+        "benchmark_score": 15500,
+        "error_logs": []
+      },
+      "gpu": {
+        "model": "Intel Iris Xe",
+        "vram": "Integrated",
+        "benchmark_fps_fhd": 62,
+        "stress_test_logs": [61, 63, 64],
+        "outputs_tested": ["HDMI", "USB-C DisplayPort"]
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "LPDDR5",
+        "frequency_mhz": 5200,
+        "health_percent": 97
+      },
+      "storage": {
+        "type": "SSD",
+        "capacity_gb": 512,
+        "health_percent": 95,
+        "read_speed_mbps": 3400,
+        "write_speed_mbps": 3000,
+        "smart_logs": []
+      },
+      "battery": {
+        "design_capacity_mAh": 6000,
+        "current_capacity_mAh": 5700,
+        "health_percent": 95,
+        "cycle_count": 120,
+        "voltage": 11.4,
+        "status": "Good"
+      },
+      "screen": {
+        "size_inches": 14,
+        "resolution": "1920x1200",
+        "panel_type": "IPS",
+        "refresh_rate_hz": 60,
+        "status": "Good",
+        "dead_pixels": 0,
+        "touch_functional": true
+      },
+      "keyboard_trackpad": {
+        "keyboard_status": "Good",
+        "trackpad_status": "Good"
+      },
+      "ports_connectivity": {
+        "wifi_status": "OK",
+        "bluetooth_status": "OK",
+        "ports_tested": ["USB-A", "USB-C", "HDMI", "Thunderbolt 4"]
+      },
+      "inspection_summary": {
+        "overall_score": 92,
+        "critical_issues": ["Minor cosmetic wear"],
+        "strengths": ["Solid build", "Good battery life", "Responsive performance"],
+        "weaknesses": ["Minor cosmetic wear"],
+        "best_use_cases": ["Graphic Design", "Office work"],
+        "recommendation": "Excellent for professional use; minor cosmetic marks do not affect performance."
+      },
+      "blockchain": {
+        "report_hash": "TO_BE_GENERATED",
+        "timestamp": "2025-08-17T19:05:00Z"
+      }
+    },
+    {
+      "device_id": "LAP004",
+      "category": "Laptop",
+      "brand": "Dell",
+      "model": "Inspiron 15",
+      "year": 2021,
+      "identity": {
+        "serial_number": "DELINSP2021SN004",
+        "motherboard_id": "MB004DELI",
+        "os_license": "Windows 10 Home",
+        "bios_lock": false,
+        "tamper_flags": []
+      },
+      "cpu": {
+        "model": "Intel i5-1135G7",
+        "cores": 4,
+        "threads": 8,
+        "base_clock_ghz": 2.4,
+        "turbo_clock_ghz": 4.2,
+        "temperature_logs": [55, 58, 60, 62],
+        "benchmark_score": 11200,
+        "error_logs": []
+      },
+      "gpu": {
+        "model": "Intel Iris Xe",
+        "vram": "Integrated",
+        "benchmark_fps_fhd": 55,
+        "stress_test_logs": [54, 55, 56],
+        "outputs_tested": ["HDMI", "USB-C"]
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "frequency_mhz": 3200,
+        "health_percent": 90
+      },
+      "storage": {
+        "type": "SSD",
+        "capacity_gb": 256,
+        "health_percent": 88,
+        "read_speed_mbps": 2200,
+        "write_speed_mbps": 1800,
+        "smart_logs": []
+      },
+      "battery": {
+        "design_capacity_mAh": 5000,
+        "current_capacity_mAh": 4000,
+        "health_percent": 80,
+        "cycle_count": 300,
+        "voltage": 11.1,
+        "status": "Fair"
+      },
+      "screen": {
+        "size_inches": 15.6,
+        "resolution": "1920x1080",
+        "panel_type": "TN",
+        "refresh_rate_hz": 60,
+        "status": "Screen scratches",
+        "dead_pixels": 5,
+        "touch_functional": false
+      },
+      "keyboard_trackpad": {
+        "keyboard_status": "Good",
+        "trackpad_status": "Functional"
+      },
+      "ports_connectivity": {
+        "wifi_status": "OK",
+        "bluetooth_status": "OK",
+        "ports_tested": ["USB-A", "USB-C", "HDMI"]
+      },
+      "inspection_summary": {
+        "overall_score": 80,
+        "critical_issues": ["Battery degraded", "Screen scratches"],
+        "strengths": ["Functional CPU & RAM", "Affordable"],
+        "weaknesses": ["Battery and screen condition"],
+        "best_use_cases": ["Light Graphic Design", "Office tasks"],
+        "recommendation": "Good for basic tasks; consider battery replacement for extended use."
+      },
+      "blockchain": {
+        "report_hash": "TO_BE_GENERATED",
+        "timestamp": "2025-08-17T19:10:00Z"
+      }
+    },
+    {
+      "device_id": "LAP005",
+      "category": "Laptop",
+      "brand": "Apple",
+      "model": "MacBook Air M2",
+      "year": 2023,
+      "identity": {
+        "serial_number": "MBAM2SN005",
+        "motherboard_id": "MB005APPLE",
+        "os_license": "macOS Ventura",
+        "bios_lock": true,
+        "tamper_flags": []
+      },
+      "cpu": {
+        "model": "Apple M2",
+        "cores": 8,
+        "threads": 8,
+        "base_clock_ghz": 3.2,
+        "turbo_clock_ghz": 3.5,
+        "temperature_logs": [45, 48, 50],
+        "benchmark_score": 20000,
+        "error_logs": []
+      },
+      "gpu": {
+        "model": "Apple M2 Integrated",
+        "vram": "Integrated",
+        "benchmark_fps_fhd": 70,
+        "stress_test_logs": [69, 70, 71],
+        "outputs_tested": ["USB-C DisplayPort", "Thunderbolt 4"]
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "Unified",
+        "frequency_mhz": 6400,
+        "health_percent": 100
+      },
+      "storage": {
+        "type": "SSD",
+        "capacity_gb": 512,
+        "health_percent": 100,
+        "read_speed_mbps": 3500,
+        "write_speed_mbps": 3100,
+        "smart_logs": []
+      },
+      "battery": {
+        "design_capacity_mAh": 5200,
+        "current_capacity_mAh": 5200,
+        "health_percent": 100,
+        "cycle_count": 50,
+        "voltage": 11.4,
+        "status": "Excellent"
+      },
+      "screen": {
+        "size_inches": 13.6,
+        "resolution": "2560x1664",
+        "panel_type": "IPS",
+        "refresh_rate_hz": 60,
+        "status": "Excellent",
+        "dead_pixels": 0,
+        "touch_functional": false
+      },
+      "keyboard_trackpad": {
+        "keyboard_status": "Excellent",
+        "trackpad_status": "Excellent"
+      },
+      "ports_connectivity": {
+        "wifi_status": "Excellent",
+        "bluetooth_status": "Excellent",
+        "ports_tested": ["USB-C", "Thunderbolt 4"]
+      },
+      "inspection_summary": {
+        "overall_score": 98,
+        "critical_issues": [],
+        "strengths": ["Excellent CPU & GPU", "Battery & Screen", "Lightweight & Portable"],
+        "weaknesses": [],
+        "best_use_cases": ["Graphic Design", "Office Work", "Content Creation"],
+        "recommendation": "Ideal for professional and creative tasks; top performance and reliability."
+      },
+      "blockchain": {
+        "report_hash": "TO_BE_GENERATED",
+        "timestamp": "2025-08-17T19:15:00Z"
+      }
+    }
+  ]
+}

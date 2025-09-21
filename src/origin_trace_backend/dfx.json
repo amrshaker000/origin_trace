@@ -1,0 +1,28 @@
+{
+  "canisters": {
+    "orgin_trace_backend": {
+      "type": "rust",
+      "package": "orgin_trace_backend",
+      "candid": "src/orgin_trace_backend/orgin_trace_backend.did"
+    },
+    "orgin_trace_frontend": {
+      "type": "assets",
+      "source": ["src/orgin_trace_frontend/dist"],
+      "dependencies": ["orgin_trace_backend"]
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000"
+    }
+  },
+  "version": 1,
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "features": {
+    "http_requests": true
+  }
+}

@@ -1,0 +1,44 @@
+type Role = variant { Seller; Specialist; Buyer };
+type User = record { id: nat64; name: text; email: text; role: Role };
+type Device = record { id: nat64; user_id: nat64; name: text; specs: text };
+type WarrantyContract = record { id: nat64; user_id: nat64; device_id: nat64; warranty_months: nat32; expiry_date: nat64 };
+type Report = record { id: nat64; device_id: nat64; specialist_name: text; notes: text; timestamp: nat64 };
+type Cart = record { user_id: nat64; device_ids: vec nat64 };
+
+service : {
+  // User APIs
+  add_user: (nat64, text, text, Role) -> ();
+  get_user: (nat64) -> (opt User) query;
+  update_user: (nat64, nat64, text, text, Role) -> (variant { ok: opt text; err: text });
+  delete_user: (nat64, nat64) -> (variant { ok: opt text; err: text });
+
+  // Device APIs
+  add_device: (nat64, nat64, text, text) -> (variant { ok: opt text; err: text });
+  delete_device: (nat64, nat64) -> (variant { ok: opt text; err: text });
+  get_device: (nat64) -> (opt Device) query;
+  list_devices: () -> (vec Device) query;
+  list_user_devices: (nat64) -> (vec Device) query;
+
+  // Contract APIs
+  create_contract: (nat64, nat64, nat64, nat32) -> (variant { ok: opt text; err: text });
+  get_contract: (nat64) -> (opt WarrantyContract) query;
+  list_contracts: () -> (vec WarrantyContract) query;
+  delete_contract: (nat64) -> ();
+
+  // Report APIs
+  add_report: (nat64, nat64, nat64, text, text) -> (variant { ok: opt text; err: text });
+  get_report: (nat64) -> (opt Report) query;
+  list_reports: () -> (vec Report) query;
+  list_device_reports: (nat64) -> (vec Report) query;
+  list_user_reports: (nat64) -> (vec Report) query;
+  delete_report: (nat64, nat64) -> (variant { ok: opt text; err: text });
+
+  // Cart APIs
+  add_to_cart: (nat64, nat64) -> (variant { ok: opt text; err: text });
+  remove_from_cart: (nat64, nat64) -> ();
+  clear_cart: (nat64) -> ();
+  checkout_cart: (nat64) -> (variant { ok: vec Device; err: text });
+
+  // AI Recommendation
+  recommend_device: (nat64, nat64, text) -> (variant { Ok: text; Err: text });
+};
