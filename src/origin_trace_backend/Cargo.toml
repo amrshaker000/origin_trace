@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 [workspace]
 members = [
     "src/orgin_trace_backend"
 ]
 resolver = "2"
+=======
+[package]
+name = "origin_trace_backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+candid = "0.10"
+ic-cdk = "0.18"
+ic-cdk-timers = "0.12" # Feel free to remove this dependency if you don't need timers
+>>>>>>> 3c48e6b2f4c427365bce7fa12e399a63c08322b4
