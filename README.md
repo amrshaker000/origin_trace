@@ -22,7 +22,7 @@ A full **end-to-end trust pipeline**:
 2. **Certify** — Cryptographic hash + IMEI/SN becomes the device’s immutable Digital Identity on ICP.  
 3. **Contract** — Smart contracts automate ownership transfer, conditional payments, and digital warranties.  
 4. **Invoice & Proof** — A QR invoice bundles the technical report, contract snapshot, and on-chain proof.  
-5. **Assist** — AI assistant explains reports in plain language and recommends best options.
+5. **Assist** — AI assistant explains reports in plain language and recommends the best options.
 
 ---
 
@@ -45,9 +45,9 @@ A full **end-to-end trust pipeline**:
 - 💸 **Escrow-style Smart Contracts** — Secure funds release on fulfillment of conditions.  
 - 📜 **On-chain Digital Warranties** — Enforced automatically by canisters.  
 - 🌐 **IPFS Integration** — Store reports, invoices, and documents off-chain with on-chain hashes.  
-- ₿ **Bitcoin Anchoring (Optional)** — Durable proofs of payment/ownership anchored to Bitcoin.  
+- ₿ **Bitcoin Anchoring** — Durable proofs of payment/ownership anchored to Bitcoin.  
 - 🤖 **AI Report Assistant** — Translates technical inspection into plain language and recommendations.  
-- 🔗 **HTTP Outcalls** — External verification (e.g., manufacturer warranty checks) via canister outcalls.
+- 🔗 **HTTP Outcalls** — External verification via canister outcalls.
 
 ---
 
@@ -63,8 +63,6 @@ ICP Canisters (Rust)
 ├─ IPFS for documents (reports, invoices)
 ├─ Bitcoin anchoring service (optional)
 └─ AI Assistant Service (connected via secure APIs)
-
-
 
 ---
 
@@ -98,11 +96,6 @@ ICP Canisters (Rust)
 - Add richer on-chain analytics & device history visualization.  
 - Expand technician network and QA processes.
 
----
-
-## 📄 License & Contact
-**License:** (Add your license here, e.g. MIT)  
-**Contact:** amrshaker842@gmail.com
 
 ---
 
