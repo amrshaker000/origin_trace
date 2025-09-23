@@ -1,10 +1,12 @@
+import realDevices from './realDevices.json'
+
 export type Device = {
   id: number
   name: string
-  category: 'smartphones' | 'laptops' | 'tablets' | 'headphones' | 'cameras' | 'monitors'
+  category: 'smartphones' | 'laptops' | 'tablets' | 'headphones' | 'cameras' | 'monitors' | string
   price: number
   originalPrice: number
-  condition: 'excellent' | 'very-good' | 'good' | 'fair' | 'Excellent' | 'Very Good' | 'Good'
+  condition: 'excellent' | 'very-good' | 'good' | 'fair' | string
   rating: number
   reviews: number
   image: string
@@ -16,136 +18,43 @@ export type Device = {
   specs?: Record<string, string>
 }
 
-export const devices: Device[] = [
-  {
-    id: 1,
-    name: 'iPhone 14 Pro',
-    category: 'smartphones',
-    price: 899,
-    originalPrice: 1199,
-    condition: 'excellent',
-    rating: 4.8,
-    reviews: 127,
-    image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&h=800&fit=crop',
-    certified: true,
-    warranty: '12 months',
-    location: 'New York, NY',
-    seller: 'TechGear Pro',
-    listedDate: '2024-01-15',
-    specs: {
-      storage: '256GB',
-      color: 'Space Black',
-      battery: '95%',
-      screen: 'Perfect'
-    }
-  },
-  {
-    id: 2,
-    name: 'MacBook Pro M2',
-    category: 'laptops',
-    price: 1499,
-    originalPrice: 1999,
-    condition: 'very-good',
-    rating: 4.9,
-    reviews: 89,
-    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=800&fit=crop',
-    certified: true,
-    warranty: '18 months',
-    location: 'San Francisco, CA',
-    seller: 'Apple Reseller',
-    listedDate: '2024-01-10',
-    specs: {
-      storage: '512GB',
-      color: 'Silver',
-      battery: '88%',
-      screen: 'Minor scratches'
-    }
-  },
-  {
-    id: 3,
-    name: 'iPad Air 5th Gen',
-    category: 'tablets',
-    price: 549,
-    originalPrice: 699,
-    condition: 'excellent',
-    rating: 4.7,
-    reviews: 203,
-    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&h=800&fit=crop',
-    certified: true,
-    warranty: '12 months',
-    location: 'Chicago, IL',
-    seller: 'Tablet World',
-    listedDate: '2024-01-20',
-    specs: {
-      storage: '64GB',
-      color: 'Space Gray',
-      battery: '92%',
-      screen: 'Perfect'
-    }
-  },
-  {
-    id: 4,
-    name: 'Sony WH-1000XM4',
-    category: 'headphones',
-    price: 249,
-    originalPrice: 349,
-    condition: 'good',
-    rating: 4.6,
-    reviews: 156,
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop',
+const mapDevice = (d: any, index: number): Device => {
+  const baseName = [d.brand, d.model].filter(Boolean).join(' ')
+  const price = d.inspection_summary && d.inspection_summary.overall_score ? Math.round((100 - d.inspection_summary.overall_score) * 10 + (d.year ? (2025 - d.year) * 5 : 0)) : 199
+  const originalPrice = Math.round(price * 1.2)
+  const conditionMap = (s: string | undefined) => {
+    if (!s) return 'good'
+    const v = s.toLowerCase()
+    if (v.includes('excellent') || v.includes('very good') || v.includes('very-good')) return 'excellent'
+    if (v.includes('good')) return 'good'
+    if (v.includes('fair') || v.includes('degraded')) return 'fair'
+    return 'good'
+  }
+
+  return {
+    id: index + 1,
+    name: baseName || String(d.device_id || d.model || 'Unknown Device'),
+    category: d.category && d.category.toLowerCase().includes('mobile') ? 'smartphones' : (d.category && d.category.toLowerCase() === 'laptop' ? 'laptops' : (d.category || 'other')),
+    price,
+    originalPrice,
+    condition: conditionMap(d.battery?.status || d.screen?.status || undefined),
+    rating: d.inspection_summary?.overall_score ? Math.round((d.inspection_summary.overall_score / 20) * 10) / 10 : 4.0,
+    reviews: Math.floor(Math.random() * 300) + 10,
+    image: d.image || (d.category && d.category.toLowerCase().includes('mobile') ? 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=800&fit=crop' : 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=800&fit=crop'),
     certified: true,
     warranty: '6 months',
-    location: 'Los Angeles, CA',
-    seller: 'Audio Elite',
-    listedDate: '2024-01-12',
+    location: d.inspection_summary?.best_use_cases?.[0] || 'Location Unknown',
+    seller: d.identity?.serial_number || undefined,
+    listedDate: d.blockchain?.timestamp ? new Date(d.blockchain.timestamp).toISOString().split('T')[0] : undefined,
     specs: {
-      color: 'Black',
-      battery: '85%',
-      condition: 'Good'
-    }
-  },
-  {
-    id: 5,
-    name: 'Canon EOS R6',
-    category: 'cameras',
-    price: 1899,
-    originalPrice: 2499,
-    condition: 'excellent',
-    rating: 4.9,
-    reviews: 67,
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=800&fit=crop',
-    certified: true,
-    warranty: '24 months',
-    location: 'Miami, FL',
-    seller: 'Photo Pro',
-    listedDate: '2024-01-08',
-    specs: {
-      shutter: '5,000 clicks',
-      color: 'Black',
-      condition: 'Excellent'
-    }
-  },
-  {
-    id: 6,
-    name: 'Samsung Odyssey G9',
-    category: 'monitors',
-    price: 899,
-    originalPrice: 1299,
-    condition: 'very-good',
-    rating: 4.8,
-    reviews: 94,
-    image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&h=800&fit=crop',
-    certified: true,
-    warranty: '12 months',
-    location: 'Seattle, WA',
-    seller: 'Monitor Masters',
-    listedDate: '2024-01-18',
-    specs: {
-      resolution: '5120x1440',
-      color: 'White',
-      condition: 'Very Good'
+      year: String(d.year || ''),
+      cpu: d.cpu?.model || '',
+      ram: d.memory?.ram_gb ? `${d.memory.ram_gb}GB` : (d.memory?.capacity_gb ? `${d.memory.capacity_gb}GB` : ''),
+      storage: d.memory?.storage_gb ? `${d.memory.storage_gb}GB` : (d.storage?.capacity_gb ? `${d.storage.capacity_gb}GB` : ''),
     }
   }
-]
+}
+
+export const devices: Device[] = (realDevices.devices || []).map(mapDevice)
 
 export const getDeviceById = (id: number) => devices.find(d => d.id === id)

@@ -15,6 +15,7 @@ import {
   BarChart3,
   PieChart
 } from 'lucide-react'
+import { devices as allDevices, type Device } from '../data/devices'
 
 const Seller = () => {
   const [activeTab, setActiveTab] = useState('products')
@@ -27,41 +28,12 @@ const Seller = () => {
     { label: 'Active Buyers', value: '89', change: '+5.1%', icon: Users, color: 'from-orange-500 to-red-500' }
   ]
 
-  const products = [
-    {
-      id: 1,
-      name: 'iPhone 14 Pro',
-      price: 899,
-      status: 'active',
-      views: 234,
-      orders: 12,
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
-      listedDate: '2024-01-15'
-    },
-    {
-      id: 2,
-      name: 'MacBook Pro M2',
-      price: 1499,
-      status: 'sold',
-      views: 189,
-      orders: 1,
-      rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop',
-      listedDate: '2024-01-10'
-    },
-    {
-      id: 3,
-      name: 'iPad Air 5th Gen',
-      price: 549,
-      status: 'pending',
-      views: 67,
-      orders: 0,
-      rating: 0,
-      image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop',
-      listedDate: '2024-01-20'
-    }
-  ]
+  const products: (Device & { status?: string; views?: number; orders?: number })[] = allDevices.map((d, idx) => ({
+    ...d,
+    status: idx % 3 === 0 ? 'active' : (idx % 3 === 1 ? 'sold' : 'pending'),
+    views: Math.floor(Math.random() * 500),
+    orders: Math.floor(Math.random() * 20)
+  }))
 
   const recentOrders = [
     { id: '#1234', product: 'iPhone 14 Pro', buyer: 'John Doe', amount: 899, status: 'completed', date: '2024-01-18' },
@@ -212,8 +184,8 @@ const Seller = () => {
                         className="w-full h-48 object-cover rounded-xl"
                       />
                       <div className="absolute top-3 left-3">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(product.status)}`}>
-                          {product.status}
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(product.status ?? 'pending')}`}>
+                          {product.status ?? 'pending'}
                         </span>
                       </div>
                       <div className="absolute top-3 right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

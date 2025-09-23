@@ -19,88 +19,19 @@ import {
   ShoppingBag,
   CreditCard
 } from 'lucide-react'
+import { devices as allDevices, type Device } from '../data/devices'
 
 const Buyer = () => {
   const [activeTab, setActiveTab] = useState('browse')
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'iPhone 14 Pro',
-      price: 899,
-      quantity: 1,
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop'
-    },
-    {
-      id: 2,
-      name: 'Sony WH-1000XM4',
-      price: 249,
-      quantity: 2,
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'
-    }
-  ])
+  type CartItem = { id: number; name: string; price: number; quantity: number; image?: string }
+  const [cartItems, setCartItems] = useState<CartItem[]>([])
 
-  const products = [
-    {
-      id: 1,
-      name: 'iPhone 14 Pro',
-      price: 899,
-      originalPrice: 1199,
-      condition: 'Excellent',
-      rating: 4.8,
-      reviews: 127,
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
-      certified: true,
-      warranty: '12 months',
-      location: 'New York, NY',
-      inCart: false,
-      inWishlist: false
-    },
-    {
-      id: 2,
-      name: 'MacBook Pro M2',
-      price: 1499,
-      originalPrice: 1999,
-      condition: 'Very Good',
-      rating: 4.9,
-      reviews: 89,
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop',
-      certified: true,
-      warranty: '18 months',
-      location: 'San Francisco, CA',
-      inCart: false,
-      inWishlist: true
-    },
-    {
-      id: 3,
-      name: 'iPad Air 5th Gen',
-      price: 549,
-      originalPrice: 699,
-      condition: 'Excellent',
-      rating: 4.7,
-      reviews: 203,
-      image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop',
-      certified: true,
-      warranty: '12 months',
-      location: 'Chicago, IL',
-      inCart: false,
-      inWishlist: false
-    },
-    {
-      id: 4,
-      name: 'Sony WH-1000XM4',
-      price: 249,
-      originalPrice: 349,
-      condition: 'Good',
-      rating: 4.6,
-      reviews: 156,
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
-      certified: true,
-      warranty: '6 months',
-      location: 'Los Angeles, CA',
-      inCart: false,
-      inWishlist: false
-    }
-  ]
+  // Use real mapped devices from data module. Add lightweight UI flags for demo state.
+  const products: (Device & { inCart?: boolean; inWishlist?: boolean })[] = allDevices.map((d) => ({
+    ...d,
+    inCart: false,
+    inWishlist: false
+  }))
 
   const orders = [
     {
@@ -164,8 +95,10 @@ const Buyer = () => {
             : item
         )
       } else {
-        const product = products.find(p => p.id === productId)
-        return [...prev, { ...product!, quantity: 1 }]
+  const product = products.find(p => p.id === productId)
+  if (!product) return prev
+  const newItem: CartItem = { id: product.id, name: product.name, price: product.price, quantity: 1, image: product.image }
+  return [...prev, newItem]
       }
     })
   }
